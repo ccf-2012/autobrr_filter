@@ -6,7 +6,8 @@
 
 ```sh
 git clone https://github.com/ccf-2012/autobrr_filter
-# wget -O  ~/psfilter/psfilter.py  https://github.com/ccf-2012/autobrr_filter
+# mkdir ~/autobrr_filter
+# wget -O  ~/autobrr_filter/psfilter.py  https://raw.githubusercontent.com/ccf-2012/autobrr_filter/main/psfilter.py
 ```
 
 
@@ -14,7 +15,7 @@ git clone https://github.com/ccf-2012/autobrr_filter
 ## autobrr setup
 * filter -> <your_filter> -> External -> Script section
     * COMMAND : python3
-    * ARGUMENTS :  /home/cff/autobrr_filter/psfilter.py
+    * ARGUMENTS :  /home/<your_name>/autobrr_filter/psfilter.py
 
 
 
