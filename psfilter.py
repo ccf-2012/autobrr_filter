@@ -1,10 +1,14 @@
 import sys
 import psutil
 import time
+import shutil
 
 
 # 以 KB/s 为单位
-THRESHOLD = 25000
+NETSPEED_THRESHOLD = 25000  # 25M Byte/s
+# byte 
+DISKSPACE_THRESHOLD = 102400000 # 100G
+
 
 # 检查网络速度
 def calc_network_speed():
@@ -25,13 +29,18 @@ def calc_network_speed():
 
 
 def main():
+    total, used, free = shutil.disk_usage(__file__)
+    if free < DISKSPACE_THRESHOLD:
+        print("not enough disk space")
+        sys.exit(1)
+
     up_speed, down_speed = calc_network_speed()
     print(f"up speed {up_speed}")
-    if  up_speed < THRESHOLD:
+    if  up_speed < NETSPEED_THRESHOLD:
 #        print("return 0")
         sys.exit(0)
     else:
-#        print("return 1")
+#        print("network busy")
         sys.exit(1)
 
 
